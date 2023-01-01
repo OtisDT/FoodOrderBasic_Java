@@ -74,7 +74,7 @@
                     android:layout_height="@dimen/define_dimen_30"
                     android:layout_marginStart="@dimen/define_dimen_10"
                     android:layout_marginEnd="@dimen/define_dimen_10"
-                    android:background="@drawable/bg_white_shape_border_red_corner_3"
+                    android:background="@drawable/bg_white_shape_border_green_corner_3"
                     android:gravity="center"
                     android:text="1"
                     android:textColor="@color/black"

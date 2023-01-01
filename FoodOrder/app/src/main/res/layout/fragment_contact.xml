@@ -15,13 +15,13 @@
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="@dimen/define_dimen_120"
             android:layout_height="@dimen/define_dimen_120"
-            android:src="@drawable/img_splash" />
+            android:src="@drawable/logo_order" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/define_dimen_10"
-            android:text="@string/tincoder"
+            android:text="@string/author"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/text_size_xnormal" />
 
