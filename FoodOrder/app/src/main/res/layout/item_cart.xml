@@ -92,7 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:background="@drawable/bg_red_shape_corner_6"
+        android:background="@drawable/bg_green_shape_corner_6"
         android:gravity="center"
         android:padding="@dimen/define_dimen_10"
         android:text="@string/delete"

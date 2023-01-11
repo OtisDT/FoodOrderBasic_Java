@@ -25,7 +25,7 @@
     <string name="msg_exit_app">Bạn có muốn thoát ứng dụng?</string>
 
     <string name="category_title">Danh mục</string>
-    <string name="food_suggest">Gợi ý món ăn</string>
+    <string name="food_suggest">Danh sách món ăn</string>
     <string name="food_detail_title">Chi tiết món ăn</string>
     <string name="add_to_cart">Thêm vào giỏ hàng</string>
     <string name="added_to_cart">Đã thêm vào giỏ hàng</string>
@@ -42,7 +42,7 @@
     <string name="order_detail">Chi tiết đơn hàng</string>
     <string name="address_delivery">Địa chỉ giao hàng</string>
     <string name="message_enter_infor_order">Vui lòng điền đầy đủ thông tin giao hàng</string>
-    <string name="hint_search_name">Tên món ăn…</string>
+    <string name="hint_search_name">Mời bạn nhập tên món ăn…</string>
     <string name="price_label">Giá:</string>
     <string name="description_label">Mô tả</string>
     <string name="more_image_label">Một số hình ảnh khác</string>

@@ -112,7 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"
-            android:background="@drawable/bg_red_shape_corner_6"
+            android:background="@drawable/bg_green_shape_corner_6"
             android:gravity="center"
             android:padding="@dimen/define_dimen_12"
             android:text="@string/send_feedback"

@@ -53,18 +53,6 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
                 holder.mItemContactBinding.tvContact.setText(context.getString(R.string.label_call));
                 break;
 
-/*            case Contact.GMAIL:
-                holder.mItemContactBinding.tvContact.setText(context.getString(R.string.label_gmail));
-                break;*/
-
-/*            case Contact.SKYPE:
-                holder.mItemContactBinding.tvContact.setText(context.getString(R.string.label_skype));
-                break;
-
-            case Contact.YOUTUBE:
-                holder.mItemContactBinding.tvContact.setText(context.getString(R.string.label_youtube));
-                break;*/
-
             case Contact.ZALO:
                 holder.mItemContactBinding.tvContact.setText(context.getString(R.string.label_zalo));
                 break;
@@ -79,18 +67,6 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
                 case Contact.HOTLINE:
                     iCallPhone.onClickCallPhone();
                     break;
-
-/*                case Contact.GMAIL:
-                    GlobalFuntion.onClickOpenGmail(context);
-                    break;
-
-                case Contact.SKYPE:
-                    GlobalFuntion.onClickOpenSkype(context);
-                    break;
-
-                case Contact.YOUTUBE:
-                    GlobalFuntion.onClickOpenYoutubeChannel(context);
-                    break;*/
 
                 case Contact.ZALO:
                     GlobalFuntion.onClickOpenZalo(context);

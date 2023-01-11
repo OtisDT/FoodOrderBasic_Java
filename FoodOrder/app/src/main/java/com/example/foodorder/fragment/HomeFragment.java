@@ -24,6 +24,8 @@ import com.example.foodorder.constant.Constant;
 import com.example.foodorder.constant.GlobalFuntion;
 import com.example.foodorder.databinding.FragmentHomeBinding;
 import com.example.foodorder.model.Food;
+import com.example.foodorder.utils.DateTimeUtils;
+import com.example.foodorder.utils.GetDataTime;
 import com.example.foodorder.utils.StringUtil;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -45,6 +47,7 @@ public class HomeFragment extends BaseFragment {
     private final Runnable mRunnableBanner = new Runnable() {
         @Override
         public void run() {
+            mFragmentHomeBinding.tvTimeDate.setText("Chào bạn\n" + GetDataTime.getDateAndTime());
             if (mListFoodPopular == null || mListFoodPopular.isEmpty()) {
                 return;
             }
@@ -53,6 +56,7 @@ public class HomeFragment extends BaseFragment {
                 return;
             }
             mFragmentHomeBinding.viewpager2.setCurrentItem(mFragmentHomeBinding.viewpager2.getCurrentItem() + 1);
+
         }
     };
 
@@ -60,7 +64,7 @@ public class HomeFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mFragmentHomeBinding = FragmentHomeBinding.inflate(inflater, container, false);
-
+        mFragmentHomeBinding.tvTimeDate.setText("Chào bạn\n" + GetDataTime.getDateAndTime());
         getListFoodFromFirebase("");
         initListener();
 
@@ -96,6 +100,7 @@ public class HomeFragment extends BaseFragment {
             }
         });
 
+
         mFragmentHomeBinding.imgSearch.setOnClickListener(view -> searchFood());
 
         mFragmentHomeBinding.edtSearchName.setOnEditorActionListener((v, actionId, event) -> {
@@ -123,7 +128,7 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void displayListFoodSuggest() {
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3);
         mFragmentHomeBinding.rcvFood.setLayoutManager(gridLayoutManager);
 
         mFoodGridAdapter = new FoodGridAdapter(mListFood, this::goToFoodDetail);
