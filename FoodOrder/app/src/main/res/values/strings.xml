@@ -4,6 +4,7 @@
     <string name="splash_text">Hungry? Let us take care of it - our app has you covered</string>
     <string name="welcome">Welcome back to your app !</string>
     <string name="author">Ứng dụng được tạo ra bới Nhóm 3</string>
+    <string name="evaluate">Đánh giá và phản hồi</string>
 
     // Tab Menu
     <string name="home">Đồ ăn</string>
