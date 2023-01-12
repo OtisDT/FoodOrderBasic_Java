@@ -1,5 +1,6 @@
 package com.example.foodorder.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -14,9 +15,11 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.foodorder.ControllerApplication;
 import com.example.foodorder.R;
 import com.example.foodorder.activity.FoodDetailActivity;
+import com.example.foodorder.activity.LoginActivity;
 import com.example.foodorder.activity.MainActivity;
 import com.example.foodorder.adapter.FoodGridAdapter;
 import com.example.foodorder.adapter.FoodPopularAdapter;
@@ -27,6 +30,8 @@ import com.example.foodorder.model.Food;
 import com.example.foodorder.utils.DateTimeUtils;
 import com.example.foodorder.utils.GetDataTime;
 import com.example.foodorder.utils.StringUtil;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -37,6 +42,7 @@ import java.util.List;
 public class HomeFragment extends BaseFragment {
 
     private FragmentHomeBinding mFragmentHomeBinding;
+    public MainActivity mMainActivity;
 
     private List<Food> mListFood;
     private List<Food> mListFoodPopular;
@@ -71,6 +77,8 @@ public class HomeFragment extends BaseFragment {
         return mFragmentHomeBinding.getRoot();
     }
 
+
+
     @Override
     protected void initToolbar() {
         if (getActivity() != null) {
@@ -98,8 +106,17 @@ public class HomeFragment extends BaseFragment {
                     getListFoodFromFirebase("");
                 }
             }
+
+
         });
 
+        mFragmentHomeBinding.logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                gotoLogin();
+            }
+        });
 
         mFragmentHomeBinding.imgSearch.setOnClickListener(view -> searchFood());
 
@@ -196,6 +213,10 @@ public class HomeFragment extends BaseFragment {
         GlobalFuntion.startActivity(getActivity(), FoodDetailActivity.class, bundle);
     }
 
+    private void gotoLogin() {
+        GlobalFuntion.startLogout(getActivity(), LoginActivity.class);
+    }
+
     @Override
     public void onPause() {
         super.onPause();
@@ -207,4 +228,5 @@ public class HomeFragment extends BaseFragment {
         super.onResume();
         mHandlerBanner.postDelayed(mRunnableBanner, 3000);
     }
+
 }

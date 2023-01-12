@@ -57,6 +57,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                 .build();
     }
 
+
     public void showAlertDialog(String errorMessage) {
         alertDialog.setContent(errorMessage);
         alertDialog.show();

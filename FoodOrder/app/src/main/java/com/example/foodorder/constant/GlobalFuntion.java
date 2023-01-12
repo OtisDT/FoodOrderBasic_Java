@@ -23,7 +23,17 @@ public class GlobalFuntion {
         Intent intent = new Intent(context, clz);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
+
     }
+    public static void startLogout(Context context, Class<?> clz) {
+        Intent intent = new Intent(context, clz);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+        ((Activity) context).finish();
+
+    }
+
+
 
     public static void startActivity(Context context, Class<?> clz, Bundle bundle) {
         Intent intent = new Intent(context, clz);

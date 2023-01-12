@@ -1,14 +1,18 @@
 package com.example.foodorder.activity;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.foodorder.R;
 import com.example.foodorder.adapter.MainViewPagerAdapter;
 import com.example.foodorder.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends BaseActivity {
 
@@ -85,6 +89,7 @@ public class MainActivity extends BaseActivity {
                 .show();
     }
 
+
     public void setToolBar(boolean isHome, String title) {
         if (isHome) {
             mActivityMainBinding.toolbar.layoutToolbar.setVisibility(View.GONE);
@@ -93,4 +98,5 @@ public class MainActivity extends BaseActivity {
         mActivityMainBinding.toolbar.layoutToolbar.setVisibility(View.VISIBLE);
         mActivityMainBinding.toolbar.tvTitle.setText(title);
     }
+
 }

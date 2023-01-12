@@ -21,7 +21,11 @@
     <color name="tran_parent">#66000000</color>
     <color name="yellow">#FF9800</color>
     <color name="blue">#2196F3</color>
-
+    <color name="text">#2F3363</color>
+    <color name="edit_text">#A2A4B5</color>
+    <color name="btn">#059C41</color>
+    <color name="green_bg">#AFD4B5</color>
+    <color name="green_txt">#416139</color>
     <color name="bottomTabActive">#4CAF50</color>
     <color name="bottomTabInActive">#171717</color>
 </resources>
