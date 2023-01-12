@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -12,7 +13,10 @@ import android.os.Bundle;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
+
+import com.example.foodorder.R;
 
 import java.text.Normalizer;
 import java.util.regex.Pattern;
@@ -26,10 +30,22 @@ public class GlobalFuntion {
 
     }
     public static void startLogout(Context context, Class<?> clz) {
-        Intent intent = new Intent(context, clz);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(intent);
-        ((Activity) context).finish();
+        new AlertDialog.Builder(context)
+                .setTitle(R.string.app_name)
+                .setMessage(R.string.msg_logout)
+                .setPositiveButton(R.string.action_ok, new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(context, clz);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                        ((Activity) context).finish();
+                    }
+
+                })
+                .setNegativeButton(R.string.action_cancel, null)
+                .show();
 
     }
 

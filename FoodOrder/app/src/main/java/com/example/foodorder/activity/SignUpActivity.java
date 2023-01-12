@@ -83,7 +83,7 @@ public class SignUpActivity extends BaseActivity {
     }
 
     private void initUI(){
-        edtEmail = mActivitySignUpBinding.registerPasswordTxt;
+        edtEmail = mActivitySignUpBinding.registerEmailTxt;
         edtPassword =mActivitySignUpBinding.registerPasswordTxt;
         edtCfPassword=mActivitySignUpBinding.registerCfPasswordTxt;
         view1=mActivitySignUpBinding.showRegisterPassword;
@@ -133,6 +133,7 @@ public class SignUpActivity extends BaseActivity {
                                 Toast.makeText(SignUpActivity.this, "Đăng ký thành công",
                                         Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+                                startActivity(intent);
                                 finishAffinity();
 
                             } else {
