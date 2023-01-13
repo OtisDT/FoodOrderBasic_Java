@@ -44,7 +44,6 @@ public class HomeFragment extends BaseFragment {
     public MainActivity mMainActivity;
 
     private List<Food> mListFood;
-/*    private FoodPopularAdapter mFoodPopularAdapter;*/
     private FoodGridAdapter mFoodGridAdapter;
 
     public String name;

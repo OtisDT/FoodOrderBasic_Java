@@ -116,7 +116,7 @@
                 app:srcCompat="@android:drawable/ic_menu_view" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
+<!--        <TextView
             android:id="@+id/forget_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
             android:layout_marginEnd="32dp"
             android:textColor="@color/text"
             android:layout_marginTop="12dp"
-            />
+            />-->
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/login_btn"
@@ -135,10 +135,8 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="68dp"
             android:layout_marginEnd="32dp"
+            android:padding="@dimen/define_dimen_5"
             android:background="@drawable/background_btn2"
-            android:drawableEnd="@drawable/circle"
-            android:padding="4dp"
-            android:paddingStart="64dp"
             android:text="Đăng nhập"
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -154,11 +152,9 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
+            android:padding="@dimen/define_dimen_5"
             android:background="@drawable/background_btn"
-            android:drawableEnd="@drawable/circle"
-            android:padding="4dp"
-            android:paddingStart="64dp"
-            android:text="Bạn chưa có tài khoản ? \nĐăng ký ngay!"
+            android:text="Đăng ký ngay!"
             android:textColor="@color/green_txt"
             android:textSize="16sp"
             android:textStyle="bold" />

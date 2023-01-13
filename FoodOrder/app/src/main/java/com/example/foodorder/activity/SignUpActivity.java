@@ -39,13 +39,13 @@ public class SignUpActivity extends BaseActivity {
                 onClickSingUp();
             }
         });
-        mActivitySignUpBinding.loginBackBtn.setOnClickListener(new View.OnClickListener() {
+/*        mActivitySignUpBinding.loginBackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent =new Intent(SignUpActivity.this,LoginActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
         view1.setOnClickListener(new View.OnClickListener() {
             boolean isPasswordVisible = true;

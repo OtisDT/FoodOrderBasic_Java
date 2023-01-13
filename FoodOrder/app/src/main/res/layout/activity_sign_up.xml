@@ -190,9 +190,7 @@
                 android:layout_marginTop="48dp"
                 android:layout_marginEnd="32dp"
                 android:background="@drawable/background_btn2"
-                android:drawableEnd="@drawable/circle"
                 android:padding="2dp"
-                android:paddingStart="64dp"
                 android:text="Đăng ký"
                 android:textColor="@color/white"
                 android:textSize="19sp"
@@ -200,7 +198,7 @@
 
                 />
 
-            <TextView
+<!--            <TextView
                 android:id="@+id/textView9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -221,13 +219,11 @@
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="32dp"
                 android:background="@drawable/background_btn"
-                android:drawableEnd="@drawable/circle"
                 android:padding="2dp"
-                android:paddingStart="64dp"
-                android:text="Đăng nhập"
+                android:text="Quay lại"
                 android:textColor="@color/green_txt"
                 android:textSize="19sp"
-                android:textStyle="bold" />
+                android:textStyle="bold" />-->
 
         </LinearLayout>
     </ScrollView>
