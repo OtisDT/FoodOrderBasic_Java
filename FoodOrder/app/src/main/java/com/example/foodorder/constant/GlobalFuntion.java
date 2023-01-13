@@ -76,6 +76,12 @@ public class GlobalFuntion {
     public static void onClickOpenZalo(Context context) {
         context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constant.ZALO_LINK)));
     }
+    public static void onClickOpenZalo1(Context context) {
+        context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constant.ZALO_LINK1)));
+    }
+    public static void onClickOpenZalo2(Context context) {
+        context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constant.ZALO_LINK2)));
+    }
 
     public static void callPhoneNumber(Activity activity) {
         try {

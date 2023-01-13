@@ -29,7 +29,7 @@ public class ContactFragment extends BaseFragment {
         FragmentContactBinding mFragmentContactBinding = FragmentContactBinding.inflate(inflater, container, false);
 
         mContactAdapter = new ContactAdapter(getActivity(), getListContact(), () -> GlobalFuntion.callPhoneNumber(getActivity()));
-        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 2);
+        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 1);
         mFragmentContactBinding.rcvData.setNestedScrollingEnabled(false);
         mFragmentContactBinding.rcvData.setFocusable(false);
         mFragmentContactBinding.rcvData.setLayoutManager(layoutManager);
@@ -40,8 +40,10 @@ public class ContactFragment extends BaseFragment {
 
     public List<Contact> getListContact() {
         List<Contact> contactArrayList = new ArrayList<>();
-        contactArrayList.add(new Contact(Contact.HOTLINE, R.drawable.ic_hotline));
-        contactArrayList.add(new Contact(Contact.ZALO, R.drawable.ic_zalo));
+/*        contactArrayList.add(new Contact(Contact.HOTLINE, R.drawable.ic_hotline));*/
+        contactArrayList.add(new Contact(Contact.ZALO, R.drawable.ava1));
+        contactArrayList.add(new Contact(Contact.ZALO1, R.drawable.ava2));
+        contactArrayList.add(new Contact(Contact.ZALO2, R.drawable.ava3));
 
         return contactArrayList;
     }

@@ -1,5 +1,6 @@
 package com.example.foodorder.activity;
 
+import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
@@ -180,7 +181,9 @@ public class FoodDetailActivity extends BaseActivity {
             bottomSheetDialog.dismiss();
             setStatusButtonAddToCart(true);
             EventBus.getDefault().post(new ReloadListCartEvent());
+
         });
+
 
         bottomSheetDialog.show();
     }

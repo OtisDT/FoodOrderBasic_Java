@@ -6,6 +6,8 @@ public interface Constant {
 
     String PHONE_NUMBER = "+84904717823";
     String ZALO_LINK = "https://zalo.me/0904717823";
+    String ZALO_LINK1 = "https://zalo.me/0965445971";
+    String ZALO_LINK2 = "https://zalo.me/0968195954";
 
     String FIREBASE_URL = "https://foodorder-2740b-default-rtdb.firebaseio.com";
 
