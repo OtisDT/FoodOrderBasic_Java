@@ -11,6 +11,7 @@ public class Order implements Serializable {
     private int amount;
     private String foods;
     private int payment;
+    private String uid;
 
     public Order() {
     }
@@ -23,6 +24,25 @@ public class Order implements Serializable {
         this.amount = amount;
         this.foods = foods;
         this.payment = payment;
+    }
+
+    public Order(long id, String name, String phone, String address, int amount, String foods, int payment,String uid) {
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+        this.amount = amount;
+        this.foods = foods;
+        this.payment = payment;
+        this.uid = uid;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public long getId() {

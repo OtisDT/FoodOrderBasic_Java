@@ -27,10 +27,6 @@ public class ControllerApplication extends Application {
         return mFirebaseDatabase.getReference("/food");
     }
 
-    public DatabaseReference getFeedbackDatabaseReference() {
-        return mFirebaseDatabase.getReference("/feedback");
-    }
-
     public DatabaseReference getBookingDatabaseReference() {
         return mFirebaseDatabase.getReference("/booking");
     }

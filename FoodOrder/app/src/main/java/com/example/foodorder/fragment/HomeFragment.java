@@ -22,7 +22,6 @@ import com.example.foodorder.activity.FoodDetailActivity;
 import com.example.foodorder.activity.LoginActivity;
 import com.example.foodorder.activity.MainActivity;
 import com.example.foodorder.adapter.FoodGridAdapter;
-import com.example.foodorder.adapter.FoodPopularAdapter;
 import com.example.foodorder.constant.Constant;
 import com.example.foodorder.constant.GlobalFuntion;
 import com.example.foodorder.databinding.FragmentHomeBinding;
@@ -45,39 +44,35 @@ public class HomeFragment extends BaseFragment {
     public MainActivity mMainActivity;
 
     private List<Food> mListFood;
-    private List<Food> mListFoodPopular;
-    private FoodPopularAdapter mFoodPopularAdapter;
+/*    private FoodPopularAdapter mFoodPopularAdapter;*/
     private FoodGridAdapter mFoodGridAdapter;
 
-    private final Handler mHandlerBanner = new Handler();
-    private final Runnable mRunnableBanner = new Runnable() {
-        @Override
-        public void run() {
-            mFragmentHomeBinding.tvTimeDate.setText("Chào bạn\n" + GetDataTime.getDateAndTime());
-            if (mListFoodPopular == null || mListFoodPopular.isEmpty()) {
-                return;
-            }
-            if (mFragmentHomeBinding.viewpager2.getCurrentItem() == mListFoodPopular.size() - 1) {
-                mFragmentHomeBinding.viewpager2.setCurrentItem(0);
-                return;
-            }
-            mFragmentHomeBinding.viewpager2.setCurrentItem(mFragmentHomeBinding.viewpager2.getCurrentItem() + 1);
-
-        }
-    };
+    public String name;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mFragmentHomeBinding = FragmentHomeBinding.inflate(inflater, container, false);
-        mFragmentHomeBinding.tvTimeDate.setText("Chào bạn\n" + GetDataTime.getDateAndTime());
+        showUserInformation();
+        mFragmentHomeBinding.tvTimeDate.setText(GetDataTime.getDateAndTime());
         getListFoodFromFirebase("");
         initListener();
 
         return mFragmentHomeBinding.getRoot();
     }
 
-
+    private void showUserInformation(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user==null)
+        {
+            return;
+        }
+        name = user.getDisplayName();
+        String email = user.getEmail();
+        int atIndex = email.indexOf("@");
+        String username = email.substring(0, atIndex);
+        mFragmentHomeBinding.tvName.setText("Xin chào "+username);
+    }
 
     @Override
     protected void initToolbar() {
@@ -129,20 +124,6 @@ public class HomeFragment extends BaseFragment {
         });
     }
 
-    private void displayListFoodPopular() {
-        mFoodPopularAdapter = new FoodPopularAdapter(getListFoodPopular(), this::goToFoodDetail);
-        mFragmentHomeBinding.viewpager2.setAdapter(mFoodPopularAdapter);
-        mFragmentHomeBinding.indicator3.setViewPager(mFragmentHomeBinding.viewpager2);
-
-        mFragmentHomeBinding.viewpager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-            @Override
-            public void onPageSelected(int position) {
-                super.onPageSelected(position);
-                mHandlerBanner.removeCallbacks(mRunnableBanner);
-                mHandlerBanner.postDelayed(mRunnableBanner, 3000);
-            }
-        });
-    }
 
     private void displayListFoodSuggest() {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3);
@@ -152,18 +133,6 @@ public class HomeFragment extends BaseFragment {
         mFragmentHomeBinding.rcvFood.setAdapter(mFoodGridAdapter);
     }
 
-    private List<Food> getListFoodPopular() {
-        mListFoodPopular = new ArrayList<>();
-        if (mListFood == null || mListFood.isEmpty()) {
-            return mListFoodPopular;
-        }
-        for (Food food : mListFood) {
-            if (food.isPopular()) {
-                mListFoodPopular.add(food);
-            }
-        }
-        return mListFoodPopular;
-    }
 
     private void getListFoodFromFirebase(String key) {
         if (getActivity() == null) {
@@ -189,7 +158,7 @@ public class HomeFragment extends BaseFragment {
                         }
                     }
                 }
-                displayListFoodPopular();
+/*                displayListFoodPopular();*/
                 displayListFoodSuggest();
             }
 
@@ -217,16 +186,5 @@ public class HomeFragment extends BaseFragment {
         GlobalFuntion.startLogout(getActivity(), LoginActivity.class);
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        mHandlerBanner.removeCallbacks(mRunnableBanner);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        mHandlerBanner.postDelayed(mRunnableBanner, 3000);
-    }
 
 }

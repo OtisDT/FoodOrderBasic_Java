@@ -105,7 +105,6 @@ public class LoginActivity extends BaseActivity {
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intent);
                                 finish();
-                                FirebaseUser user = mAuth.getCurrentUser();
                             } else {
                                 // If sign in fails, display a message to the user.
                                 dismissProgressDialog();
@@ -117,6 +116,8 @@ public class LoginActivity extends BaseActivity {
                     });
         }
     }
+
+
 
 
 

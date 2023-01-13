@@ -17,6 +17,8 @@ import com.example.foodorder.adapter.OrderAdapter;
 import com.example.foodorder.databinding.FragmentOrderBinding;
 import com.example.foodorder.model.Order;
 import com.example.foodorder.utils.Utils;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -56,18 +58,27 @@ public class OrderFragment extends BaseFragment {
         mListOrder = new ArrayList<>();
         mOrderAdapter = new OrderAdapter(mListOrder);
         mFragmentOrderBinding.rcvOrder.setAdapter(mOrderAdapter);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user==null)
+        {
+            return;
+        }
+        String uid = user.getUid();
     }
 
     public void getListOrders() {
         if (getActivity() == null) {
             return;
         }
+
+
         ControllerApplication.get(getActivity()).getBookingDatabaseReference().child(Utils.getDeviceId(getActivity()))
                 .addChildEventListener(new ChildEventListener() {
                     @SuppressLint("NotifyDataSetChanged")
                     @Override
                     public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String s) {
                         Order order = dataSnapshot.getValue(Order.class);
+
                         if (order == null || mListOrder == null || mOrderAdapter == null) {
                             return;
                         }
@@ -79,6 +90,12 @@ public class OrderFragment extends BaseFragment {
                     @Override
                     public void onChildChanged(@NonNull DataSnapshot dataSnapshot, String s) {
                         Order order = dataSnapshot.getValue(Order.class);
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        if(user==null)
+                        {
+                            return;
+                        }
+                        String uid = user.getUid();
                         if (order == null || mListOrder == null
                                 || mListOrder.isEmpty() || mOrderAdapter == null) {
                             return;

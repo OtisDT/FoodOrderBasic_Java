@@ -10,6 +10,8 @@ import com.example.foodorder.constant.Constant;
 import com.example.foodorder.databinding.ItemOrderBinding;
 import com.example.foodorder.model.Order;
 import com.example.foodorder.utils.DateTimeUtils;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.List;
 
@@ -29,27 +31,30 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         return new OrderViewHolder(itemOrderBinding);
     }
 
+
+
     @Override
     public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
         Order order = mListOrder.get(position);
         if (order == null) {
             return;
         }
-        holder.mItemOrderBinding.tvId.setText(String.valueOf(order.getId()));
-        holder.mItemOrderBinding.tvName.setText(order.getName());
-        holder.mItemOrderBinding.tvPhone.setText(order.getPhone());
-        holder.mItemOrderBinding.tvAddress.setText(order.getAddress());
-        holder.mItemOrderBinding.tvMenu.setText(order.getFoods());
-        holder.mItemOrderBinding.tvDate.setText(DateTimeUtils.convertTimeStampToDate(order.getId()));
+            holder.mItemOrderBinding.tvId.setText(String.valueOf(order.getId()));
+            holder.mItemOrderBinding.tvName.setText(order.getName());
+            holder.mItemOrderBinding.tvPhone.setText(order.getPhone());
+            holder.mItemOrderBinding.tvAddress.setText(order.getAddress());
+            holder.mItemOrderBinding.tvMenu.setText(order.getFoods());
+            holder.mItemOrderBinding.tvDate.setText(DateTimeUtils.convertTimeStampToDate(order.getId()));
 
-        String strAmount = order.getAmount() + Constant.CURRENCY;
-        holder.mItemOrderBinding.tvTotalAmount.setText(strAmount);
+            String strAmount = order.getAmount() + Constant.CURRENCY;
+            holder.mItemOrderBinding.tvTotalAmount.setText(strAmount);
 
-        String paymentMethod = "";
-        if (Constant.TYPE_PAYMENT_CASH == order.getPayment()) {
-            paymentMethod = Constant.PAYMENT_METHOD_CASH;
-        }
-        holder.mItemOrderBinding.tvPayment.setText(paymentMethod);
+            String paymentMethod = "";
+            if (Constant.TYPE_PAYMENT_CASH == order.getPayment()) {
+                paymentMethod = Constant.PAYMENT_METHOD_CASH;
+            }
+            holder.mItemOrderBinding.tvPayment.setText(paymentMethod);
+
     }
 
     @Override

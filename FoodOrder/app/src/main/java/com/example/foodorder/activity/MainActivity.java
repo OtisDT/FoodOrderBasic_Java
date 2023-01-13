@@ -42,14 +42,10 @@ public class MainActivity extends BaseActivity {
                         break;
 
                     case 2:
-                        mActivityMainBinding.bottomNavigation.getMenu().findItem(R.id.nav_feedback).setChecked(true);
-                        break;
-
-                    case 3:
                         mActivityMainBinding.bottomNavigation.getMenu().findItem(R.id.nav_contact).setChecked(true);
                         break;
 
-                    case 4:
+                    case 3:
                         mActivityMainBinding.bottomNavigation.getMenu().findItem(R.id.nav_order).setChecked(true);
                         break;
                 }
@@ -62,12 +58,12 @@ public class MainActivity extends BaseActivity {
                 mActivityMainBinding.viewpager2.setCurrentItem(0);
             } else if (id == R.id.nav_cart) {
                 mActivityMainBinding.viewpager2.setCurrentItem(1);
-            } else if (id == R.id.nav_feedback) {
-                mActivityMainBinding.viewpager2.setCurrentItem(2);
-            } else if (id == R.id.nav_contact) {
+            } /*else if (id == R.id.nav_feedback) {
                 mActivityMainBinding.viewpager2.setCurrentItem(3);
+            }*/ else if (id == R.id.nav_contact) {
+                mActivityMainBinding.viewpager2.setCurrentItem(2);
             } else if (id == R.id.nav_order) {
-                mActivityMainBinding.viewpager2.setCurrentItem(4);
+                mActivityMainBinding.viewpager2.setCurrentItem(3);
             }
             return true;
         });
@@ -88,6 +84,7 @@ public class MainActivity extends BaseActivity {
                 .cancelable(false)
                 .show();
     }
+
 
 
     public void setToolBar(boolean isHome, String title) {

@@ -45,9 +45,6 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         }
         holder.mItemContactBinding.imgContact.setImageResource(contact.getImage());
         switch (contact.getId()) {
-            case Contact.FACEBOOK:
-                holder.mItemContactBinding.tvContact.setText(context.getString(R.string.label_facebook));
-                break;
 
             case Contact.HOTLINE:
                 holder.mItemContactBinding.tvContact.setText(context.getString(R.string.label_call));
@@ -60,9 +57,6 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
 
         holder.mItemContactBinding.layoutItem.setOnClickListener(v -> {
             switch (contact.getId()) {
-                case Contact.FACEBOOK:
-                    GlobalFuntion.onClickOpenFacebook(context);
-                    break;
 
                 case Contact.HOTLINE:
                     iCallPhone.onClickCallPhone();

@@ -7,10 +7,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.example.foodorder.R;
-import com.example.foodorder.adapter.MoreImageAdapter;
 import com.example.foodorder.constant.Constant;
 import com.example.foodorder.database.FoodDatabase;
 import com.example.foodorder.databinding.ActivityFoodDetailBinding;
@@ -84,22 +82,8 @@ public class FoodDetailActivity extends BaseActivity {
         mActivityFoodDetailBinding.tvFoodName.setText(mFood.getName());
         mActivityFoodDetailBinding.tvFoodDescription.setText(mFood.getDescription());
 
-        displayListMoreImages();
 
         setStatusButtonAddToCart();
-    }
-
-    private void displayListMoreImages() {
-        if (mFood.getImages() == null || mFood.getImages().isEmpty()) {
-            mActivityFoodDetailBinding.tvMoreImageLabel.setVisibility(View.GONE);
-            return;
-        }
-        mActivityFoodDetailBinding.tvMoreImageLabel.setVisibility(View.VISIBLE);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
-        mActivityFoodDetailBinding.rcvImages.setLayoutManager(gridLayoutManager);
-
-        MoreImageAdapter moreImageAdapter = new MoreImageAdapter(mFood.getImages());
-        mActivityFoodDetailBinding.rcvImages.setAdapter(moreImageAdapter);
     }
 
     private void setStatusButtonAddToCart() {

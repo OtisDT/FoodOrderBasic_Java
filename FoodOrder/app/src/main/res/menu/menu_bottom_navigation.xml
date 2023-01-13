@@ -11,10 +11,10 @@
         android:icon="@drawable/ic_nav_cart"
         android:title="@string/cart" />
 
-    <item
+<!--    <item
         android:id="@+id/nav_feedback"
         android:icon="@drawable/ic_nav_feedback"
-        android:title="@string/feedback" />
+        android:title="@string/feedback" />-->
 
     <item
         android:id="@+id/nav_contact"

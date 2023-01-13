@@ -28,6 +28,8 @@ import com.example.foodorder.utils.StringUtil;
 import com.example.foodorder.utils.Utils;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -145,6 +147,7 @@ public class CartFragment extends BaseFragment {
                 .show();
     }
 
+
     public void onClickOrderCart() {
         if (getActivity() == null) {
             return;
@@ -177,6 +180,12 @@ public class CartFragment extends BaseFragment {
         tvCancelOrder.setOnClickListener(v -> bottomSheetDialog.dismiss());
 
         tvCreateOrder.setOnClickListener(v -> {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            if(user==null)
+            {
+                return;
+            }
+            String uid = user.getUid();
             String strName = edtNameOrder.getText().toString().trim();
             String strPhone = edtPhoneOrder.getText().toString().trim();
             String strAddress = edtAddressOrder.getText().toString().trim();
@@ -186,7 +195,7 @@ public class CartFragment extends BaseFragment {
             } else {
                 long id = System.currentTimeMillis();
                 Order order = new Order(id, strName, strPhone, strAddress,
-                        mAmount, getStringListFoodsOrder(), Constant.TYPE_PAYMENT_CASH);
+                        mAmount, getStringListFoodsOrder(), Constant.TYPE_PAYMENT_CASH, uid);
                 ControllerApplication.get(getActivity()).getBookingDatabaseReference()
                         .child(Utils.getDeviceId(getActivity()))
                         .child(String.valueOf(id))

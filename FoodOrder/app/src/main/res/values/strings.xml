@@ -40,7 +40,7 @@
     <string name="message_delete_food">Bạn có chắc chắn muốn xóa món ăn này không?</string>
     <string name="dialog_cancel">Hủy</string>
     <string name="order_detail">Chi tiết đơn hàng</string>
-    <string name="address_delivery">Địa chỉ giao hàng</string>
+    <string name="address_delivery">Địa chỉ giao hàng (*)</string>
     <string name="message_enter_infor_order">Vui lòng điền đầy đủ thông tin giao hàng</string>
     <string name="hint_search_name">Mời bạn nhập tên món ăn…</string>
     <string name="price_label">Giá:</string>
@@ -51,9 +51,8 @@
 
     <string name="feedback_name">Họ và Tên (*)</string>
     <string name="feedback_email">Email</string>
-    <string name="feedback_phone">Số điện thoại</string>
-    <string name="feedback_comment">Bình luận (*)</string>
-    <string name="send_feedback">Gửi phản hồi</string>
+    <string name="feedback_phone">Số điện thoại (*)</string>
+
 
     <string name="label_id">Mã đơn hàng:</string>
     <string name="label_name">Họ tên:</string>
