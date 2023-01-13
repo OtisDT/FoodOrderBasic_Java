@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -82,7 +83,11 @@ public class CartFragment extends BaseFragment {
         mListFoodCart = new ArrayList<>();
         mListFoodCart = FoodDatabase.getInstance(getActivity()).foodDAO().getListFoodCart();
         if (mListFoodCart == null || mListFoodCart.isEmpty()) {
+            mFragmentCartBinding.layoutBottom.setVisibility(View.INVISIBLE);
             return;
+        }
+        else{
+            mFragmentCartBinding.layoutBottom.setVisibility(View.VISIBLE);
         }
 
         mCartAdapter = new CartAdapter(mListFoodCart, new CartAdapter.IClickListener() {
@@ -119,7 +124,10 @@ public class CartFragment extends BaseFragment {
             String strZero = 0 + Constant.CURRENCY;
             mFragmentCartBinding.tvTotalPrice.setText(strZero);
             mAmount = 0;
+            mFragmentCartBinding.layoutBottom.setVisibility(View.INVISIBLE);
             return;
+        }else{
+            mFragmentCartBinding.layoutBottom.setVisibility(View.VISIBLE);
         }
 
         int totalPrice = 0;

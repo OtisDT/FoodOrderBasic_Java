@@ -10,6 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/red"
         android:orientation="vertical"
         android:padding="16dp">
 
@@ -22,6 +23,7 @@
                 android:layout_width="@dimen/define_dimen_100"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:textColor="@color/white"
                 android:text="@string/label_id"
                 android:textSize="@dimen/text_size_small" />
 
@@ -31,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/define_dimen_5"
                 android:layout_toEndOf="@+id/label_id"
-                android:textColor="@color/textColorPrimary"
+                android:textColor="@color/white"
                 android:textSize="@dimen/text_size_small" />
         </RelativeLayout>
 
@@ -45,6 +47,7 @@
                 android:layout_width="@dimen/define_dimen_100"
                 android:layout_height="wrap_content"
                 android:text="@string/label_name"
+                android:textColor="@color/white"
                 android:textSize="@dimen/text_size_small" />
 
             <TextView
@@ -53,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/define_dimen_5"
                 android:layout_toEndOf="@+id/label_name"
-                android:textColor="@color/textColorPrimary"
+                android:textColor="@color/white"
                 android:textSize="@dimen/text_size_small" />
         </RelativeLayout>
 
@@ -67,6 +70,7 @@
                 android:layout_width="@dimen/define_dimen_100"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:textColor="@color/white"
                 android:text="@string/label_phone"
                 android:textSize="@dimen/text_size_small" />
 
@@ -76,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/define_dimen_5"
                 android:layout_toEndOf="@+id/label_phone"
-                android:textColor="@color/textColorPrimary"
+                android:textColor="@color/white"
                 android:textSize="@dimen/text_size_small" />
         </RelativeLayout>
 
@@ -90,6 +94,7 @@
                 android:layout_width="@dimen/define_dimen_100"
                 android:layout_height="wrap_content"
                 android:text="@string/label_address"
+                android:textColor="@color/white"
                 android:textSize="@dimen/text_size_small" />
 
             <TextView
@@ -99,7 +104,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/define_dimen_5"
                 android:layout_toEndOf="@+id/label_address"
-                android:textColor="@color/textColorPrimary"
+                android:textColor="@color/white"
                 android:textSize="@dimen/text_size_small" />
         </RelativeLayout>
 
@@ -112,6 +117,7 @@
                 android:id="@+id/label_menu"
                 android:layout_width="@dimen/define_dimen_100"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:text="@string/label_menu"
                 android:textSize="@dimen/text_size_small" />
 
@@ -122,7 +128,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/define_dimen_5"
                 android:layout_toEndOf="@+id/label_menu"
-                android:textColor="@color/textColorPrimary"
+                android:textColor="@color/white"
                 android:textSize="@dimen/text_size_small" />
         </RelativeLayout>
 
@@ -136,6 +142,7 @@
                 android:layout_width="@dimen/define_dimen_100"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:textColor="@color/white"
                 android:text="@string/label_date"
                 android:textSize="@dimen/text_size_small" />
 
@@ -145,7 +152,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/define_dimen_5"
                 android:layout_toEndOf="@+id/label_date"
-                android:textColor="@color/textColorPrimary"
+                android:textColor="@color/white"
                 android:textSize="@dimen/text_size_small" />
         </RelativeLayout>
 
@@ -153,7 +160,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="@dimen/define_dimen_10"
-            android:background="@color/colorPrimaryDark"/>
+            android:background="@color/white"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -192,6 +199,7 @@
                 android:layout_width="@dimen/define_dimen_100"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:textColor="@color/white"
                 android:text="@string/label_payment"
                 android:textSize="@dimen/text_size_small" />
 
@@ -202,7 +210,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/define_dimen_5"
                 android:layout_toEndOf="@+id/label_payment"
-                android:textColor="@color/textColorPrimary"
+                android:textColor="@color/white"
                 android:textSize="@dimen/text_size_small"
                 android:textStyle="bold" />
         </RelativeLayout>
