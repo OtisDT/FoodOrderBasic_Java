@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.foodorder.ControllerApplication;
 import com.example.foodorder.R;
+import com.example.foodorder.activity.FoodDetailActivity;
 import com.example.foodorder.activity.MainActivity;
 import com.example.foodorder.adapter.CartAdapter;
 import com.example.foodorder.constant.Constant;
@@ -84,10 +86,12 @@ public class CartFragment extends BaseFragment {
         mListFoodCart = FoodDatabase.getInstance(getActivity()).foodDAO().getListFoodCart();
         if (mListFoodCart == null || mListFoodCart.isEmpty()) {
             mFragmentCartBinding.layoutBottom.setVisibility(View.INVISIBLE);
+            mFragmentCartBinding.txtCartEmpty.setVisibility(View.VISIBLE);
             return;
         }
         else{
             mFragmentCartBinding.layoutBottom.setVisibility(View.VISIBLE);
+            mFragmentCartBinding.txtCartEmpty.setVisibility(View.INVISIBLE);
         }
 
         mCartAdapter = new CartAdapter(mListFoodCart, new CartAdapter.IClickListener() {
@@ -125,9 +129,11 @@ public class CartFragment extends BaseFragment {
             mFragmentCartBinding.tvTotalPrice.setText(strZero);
             mAmount = 0;
             mFragmentCartBinding.layoutBottom.setVisibility(View.INVISIBLE);
+            mFragmentCartBinding.txtCartEmpty.setVisibility(View.VISIBLE);
             return;
         }else{
             mFragmentCartBinding.layoutBottom.setVisibility(View.VISIBLE);
+            mFragmentCartBinding.txtCartEmpty.setVisibility(View.INVISIBLE);
         }
 
         int totalPrice = 0;
@@ -150,6 +156,7 @@ public class CartFragment extends BaseFragment {
                     mCartAdapter.notifyItemRemoved(position);
 
                     calculateTotalPrice();
+                    GlobalFuntion.showToastMessage(getActivity(), "Xóa thành công");
                 })
                 .setNegativeButton(getString(R.string.dialog_cancel), (dialog, which) -> dialog.dismiss())
                 .show();
