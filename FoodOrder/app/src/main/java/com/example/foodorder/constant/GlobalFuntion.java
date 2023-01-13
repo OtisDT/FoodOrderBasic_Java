@@ -29,7 +29,7 @@ public class GlobalFuntion {
         context.startActivity(intent);
 
     }
-    public static void startLogout(Context context, Class<?> clz) {
+    public static void startLogout(Context context, Class<?> T) {
         new AlertDialog.Builder(context)
                 .setTitle(R.string.app_name)
                 .setMessage(R.string.msg_logout)
@@ -37,7 +37,7 @@ public class GlobalFuntion {
                 {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(context, clz);
+                        Intent intent = new Intent(context, T);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
                         ((Activity) context).finish();
@@ -51,8 +51,8 @@ public class GlobalFuntion {
 
 
 
-    public static void startActivity(Context context, Class<?> clz, Bundle bundle) {
-        Intent intent = new Intent(context, clz);
+    public static void startActivity(Context context, Class<?> T, Bundle bundle) {
+        Intent intent = new Intent(context, T);
         intent.putExtras(bundle);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);

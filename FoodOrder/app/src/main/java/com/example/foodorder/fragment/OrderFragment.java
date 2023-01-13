@@ -72,7 +72,7 @@ public class OrderFragment extends BaseFragment {
         }
 
 
-        ControllerApplication.get(getActivity()).getBookingDatabaseReference().child(Utils.getDeviceId(getActivity()))
+        ControllerApplication.get(getActivity()).getBookingDatabaseReference().child(Utils.getUId())
                 .addChildEventListener(new ChildEventListener() {
                     @SuppressLint("NotifyDataSetChanged")
                     @Override

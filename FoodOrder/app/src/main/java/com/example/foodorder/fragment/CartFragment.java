@@ -195,9 +195,9 @@ public class CartFragment extends BaseFragment {
             } else {
                 long id = System.currentTimeMillis();
                 Order order = new Order(id, strName, strPhone, strAddress,
-                        mAmount, getStringListFoodsOrder(), Constant.TYPE_PAYMENT_CASH, uid);
+                        mAmount, getStringListFoodsOrder(), Constant.TYPE_PAYMENT_CASH);
                 ControllerApplication.get(getActivity()).getBookingDatabaseReference()
-                        .child(Utils.getDeviceId(getActivity()))
+                        .child(Utils.getUId())
                         .child(String.valueOf(id))
                         .setValue(order, (error1, ref1) -> {
                             GlobalFuntion.showToastMessage(getActivity(), getString(R.string.msg_order_success));
