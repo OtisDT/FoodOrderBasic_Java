@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 
@@ -83,15 +84,20 @@ public class FoodDetailActivity extends BaseActivity {
         mActivityFoodDetailBinding.tvFoodDescription.setText(mFood.getDescription());
 
 
-        setStatusButtonAddToCart();
+        setStatusButtonAddToCart(false);
     }
 
-    private void setStatusButtonAddToCart() {
+    private void setStatusButtonAddToCart(boolean isClickAddButton) {
         if (isFoodInCart()) {
             mActivityFoodDetailBinding.tvAddToCart.setBackgroundResource(R.drawable.bg_gray_shape_corner_6);
             mActivityFoodDetailBinding.tvAddToCart.setText(getString(R.string.added_to_cart));
             mActivityFoodDetailBinding.tvAddToCart.setTextColor(ContextCompat.getColor(this, R.color.textColorPrimary));
             mActivityFoodDetailBinding.toolbar.imgCart.setVisibility(View.GONE);
+            if(isClickAddButton == true){
+                mActivityFoodDetailBinding.toolbar.imgBack.callOnClick();
+                Toast.makeText(FoodDetailActivity.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
+            }
+
         } else {
             mActivityFoodDetailBinding.tvAddToCart.setBackgroundResource(R.drawable.bg_green_shape_corner_6);
             mActivityFoodDetailBinding.tvAddToCart.setText(getString(R.string.add_to_cart));
@@ -172,7 +178,7 @@ public class FoodDetailActivity extends BaseActivity {
         tvAddCart.setOnClickListener(v -> {
             FoodDatabase.getInstance(FoodDetailActivity.this).foodDAO().insertFood(mFood);
             bottomSheetDialog.dismiss();
-            setStatusButtonAddToCart();
+            setStatusButtonAddToCart(true);
             EventBus.getDefault().post(new ReloadListCartEvent());
         });
 
