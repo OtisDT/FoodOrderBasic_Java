@@ -46,24 +46,36 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         holder.mItemContactBinding.imgContact.setImageResource(contact.getImage());
         switch (contact.getId()) {
 
-            case Contact.HOTLINE:
+/*            case Contact.HOTLINE:
                 holder.mItemContactBinding.tvContact.setText(context.getString(R.string.label_call));
-                break;
+                break;*/
 
             case Contact.ZALO:
-                holder.mItemContactBinding.tvContact.setText(context.getString(R.string.label_zalo));
+                holder.mItemContactBinding.tvContact.setText("Trần Đức Đạt");
+                break;
+            case Contact.ZALO1:
+                holder.mItemContactBinding.tvContact.setText("Nguyễn Đức Thái");
+                break;
+            case Contact.ZALO2:
+                holder.mItemContactBinding.tvContact.setText("Vi Đạt Quân");
                 break;
         }
 
         holder.mItemContactBinding.layoutItem.setOnClickListener(v -> {
             switch (contact.getId()) {
 
-                case Contact.HOTLINE:
+/*                case Contact.HOTLINE:
                     iCallPhone.onClickCallPhone();
-                    break;
+                    break;*/
 
                 case Contact.ZALO:
                     GlobalFuntion.onClickOpenZalo(context);
+                    break;
+                case Contact.ZALO1:
+                    GlobalFuntion.onClickOpenZalo1(context);
+                    break;
+                case Contact.ZALO2:
+                    GlobalFuntion.onClickOpenZalo2(context);
                     break;
             }
         });

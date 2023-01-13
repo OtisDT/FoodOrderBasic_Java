@@ -54,8 +54,8 @@
     <string name="feedback_phone">Số điện thoại (*)</string>
 
 
-    <string name="label_id">Mã đơn hàng:</string>
-    <string name="label_name">Họ tên:</string>
+    <string name="label_id">Mã đơn hàng :</string>
+    <string name="label_name">Họ tên :</string>
     <string name="label_phone">Số điện thoại:</string>
     <string name="label_address">Địa chỉ nhận:</string>
     <string name="label_price">Tổng tiền:</string>
