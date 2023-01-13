@@ -10,8 +10,6 @@ import com.example.foodorder.constant.Constant;
 import com.example.foodorder.databinding.ItemOrderBinding;
 import com.example.foodorder.model.Order;
 import com.example.foodorder.utils.DateTimeUtils;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import java.util.List;
 

@@ -32,6 +32,7 @@ public class OrderFragment extends BaseFragment {
     private List<Order> mListOrder;
     private OrderAdapter mOrderAdapter;
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

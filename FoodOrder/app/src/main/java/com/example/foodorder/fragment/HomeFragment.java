@@ -1,8 +1,10 @@
 package com.example.foodorder.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -37,6 +39,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class HomeFragment extends BaseFragment {
 
@@ -48,16 +52,51 @@ public class HomeFragment extends BaseFragment {
 
     public String name;
 
+    private final Handler mHandlerBanner = new Handler();
+    private final Runnable mRunnableBanner = new Runnable() {
+        @Override
+        public void run() {
+            mFragmentHomeBinding.tvTimeDate.setText(GetDataTime.getDateAndTime());
+        }
+    };
+
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mFragmentHomeBinding = FragmentHomeBinding.inflate(inflater, container, false);
         showUserInformation();
-        mFragmentHomeBinding.tvTimeDate.setText(GetDataTime.getDateAndTime());
+
+        @SuppressLint("HandlerLeak") final Handler handler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                setTime();
+            }
+        };
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        Thread.sleep(1000);
+                        handler.sendEmptyMessage(0);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
+        
         getListFoodFromFirebase("");
         initListener();
-
         return mFragmentHomeBinding.getRoot();
+    }
+    Timer timer;
+
+    public void setTime(){
+        mFragmentHomeBinding.tvTimeDate.setText(GetDataTime.getDateAndTime());
     }
 
     private void showUserInformation(){
@@ -157,7 +196,6 @@ public class HomeFragment extends BaseFragment {
                         }
                     }
                 }
-/*                displayListFoodPopular();*/
                 displayListFoodSuggest();
             }
 
@@ -185,5 +223,16 @@ public class HomeFragment extends BaseFragment {
         GlobalFuntion.startLogout(getActivity(), LoginActivity.class);
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        mHandlerBanner.removeCallbacks(mRunnableBanner);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mHandlerBanner.postDelayed(mRunnableBanner, 2000);
+    }
 
 }
