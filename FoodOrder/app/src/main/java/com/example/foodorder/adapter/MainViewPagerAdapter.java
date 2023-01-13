@@ -27,10 +27,10 @@ public class MainViewPagerAdapter extends FragmentStateAdapter {
                 return new CartFragment();
 
             case 2:
-                return new ContactFragment();
+                return new OrderFragment();
 
             case 3:
-                return new OrderFragment();
+                return new ContactFragment();
 
             default:
                 return new HomeFragment();
